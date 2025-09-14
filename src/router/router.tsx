@@ -14,6 +14,9 @@ import Product from "../pages/Product";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
 import NotFound from "../pages/NotFound";
+import BlogLayout from "../pages/BlogLayout";
+import Posts from "../pages/Post";
+import PostDetail from "../pages/PostDetail";
 
 // eslint-disable-next-line react-refresh/only-export-components
 function Layout() {
@@ -52,7 +55,13 @@ const router = createBrowserRouter([
   {path: '/login', element: <Login/>},
   {path: '/register', element: <Register/>},
   { path: "/about", element: <About /> },
-  {path: "*", element: <NotFound/>}
+  {path: "*", element: <NotFound/>},
+   { path: "/blog",  element: <BlogLayout />, children: [
+        {path: "posts", element: <Posts /> },
+        {path:"posts/:id", element:<PostDetail />}
+        
+    ]
+    },
 ])
 
 export default router;  
